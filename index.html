@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelKart | Ultra 3D Multi-Color</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-layer"></div>
+
+    <div class="master-wrapper">
+        <header class="main-header">
+            <img src="IMAGE/logo.png" alt="FK" class="extreme-logo">
+            <h1 class="brand-name">FEEL<span>KART</span></h1>
+        </header>
+
+        <section id="step-1" class="view active">
+            <h2 class="float-title">HOW'S THE VIBE TODAY?</h2>
+            <div class="mood-grid">
+                <button class="mega-card red" onclick="goNext('step-1', 'step-2', 'Anxiety')">🌪️ ANXIETY</button>
+                <button class="mega-card orange" onclick="goNext('step-1', 'step-2', 'Stress')">🤯 STRESS</button>
+                <button class="mega-card blue" onclick="goNext('step-1', 'step-2', 'Sadness')">☁️ LOW/SAD</button>
+                <button class="mega-card pink" onclick="goNext('step-1', 'step-2', 'Love')">💖 LOVE</button>
+            </div>
+        </section>
+
+        <section id="step-2" class="view">
+            <div class="floating-panel">
+                <h2 id="q-text">ANALYZING BRAINWAVES...</h2>
+                <div id="q-options" class="stack-options"></div>
+            </div>
+        </section>
+
+        <section id="step-3" class="view">
+            <div class="plans-grid">
+                <div class="plan-3d teal" onclick="openVault(99)"><h3>BASIC</h3><h1>₹99</h1><button class="bold-btn">BUY NOW</button></div>
+                <div class="plan-3d gold" onclick="openVault(499)"><h3>PRO</h3><h1>₹499</h1><button class="bold-btn">BUY NOW</button></div>
+                <div class="plan-3d purple" onclick="openVault(999)"><h3>ELITE</h3><h1>₹999</h1><button class="bold-btn">BUY NOW</button></div>
+            </div>
+        </section>
+
+        <section id="payment-vault" class="view">
+            <div class="vault-container">
+                <h2 class="vault-title">SECURE 3D GATEWAY</h2>
+                <div class="vault-methods">
+                    <div class="method-card">
+                        <h3>BANK CARDS</h3>
+                        <div class="vis-card"><span>FEELKART USER</span><br>**** **** **** 2026</div>
+                        <input type="text" placeholder="CARD NUMBER" class="bold-in">
+                        <button class="bold-btn pay" onclick="finalSuccess()">PAY WITH CARD</button>
+                    </div>
+                    <div class="method-card">
+                        <h3>UPI / SCANNER</h3>
+                        <div class="qr-3d">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=FeelKart" alt="QR">
+                            <div class="scan-bar"></div>
+                        </div>
+                        <input type="text" placeholder="user@upi" class="bold-in">
+                        <button class="bold-btn upi" onclick="finalSuccess()">PAY WITH UPI</button>
+                    </div>
+                </div>
+                <button class="back-link" onclick="goNext('payment-vault', 'step-3')">← CANCEL</button>
+            </div>
+        </section>
+
+        <section id="step-4" class="view">
+            <div class="final-dash">
+                <div class="dash-card"><h4>AUDIO HEALING</h4><audio controls><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio></div>
+                <div class="dash-card" id="video-mount"></div>
+            </div>
+            <button class="bold-btn" onclick="location.reload()" style="max-width:300px; margin: 20px auto;">END SESSION</button>
+        </section>
+    </div>
+
+    <div id="ai-companion" class="bot-box-min">
+        <div class="bot-top" onclick="toggleBot()">🤖 AI COMPANION [ONLINE]</div>
+        <div class="bot-mid">
+            <div id="bot-logs"></div>
+            <div class="bot-bottom">
+                <input type="text" id="bot-in" placeholder="Ask anything..." onkeypress="if(event.key==='Enter') botSpeak()">
+                <button onclick="botSpeak()">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
